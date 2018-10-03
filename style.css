@@ -1,0 +1,285 @@
+html {
+  font-size: 625%;
+}
+body {
+  font-size: 0.14em;
+  overflow-x: hidden;
+  margin: 0;
+  background: #fdd;
+}
+#navtgl {
+  display: none;
+  overflow: hidden;
+}
+.open,
+.close {
+  cursor: pointer;
+  position: fixed;
+  top: -12px;
+  left: -12px;
+}
+.open {
+  z-index: 5;
+  width: 80px;
+  height: 80px;
+  -moz-border-radius: 160px;
+  -webkit-border-radius: 160px;
+  border-radius: 160px;
+  line-height: 80px;
+  font-size: 0.3rem;
+  background-color: #7dd;
+  color: #fff;
+  -webkit-transition: background-color 0.6s, -webkit-transform 0.6s;
+  transition: background-color 0.6s, -webkit-transform 0.6s;
+  -o-transition: background-color 0.6s, transform 0.6s;
+  transition: background-color 0.6s, transform 0.6s;
+  transition: background-color 0.6s, transform 0.6s, -webkit-transform 0.6s;
+  text-align: center;
+}
+#navtgl:checked + .open {
+  background-color: #822;
+  -webkit-transform: translateX(250px);
+  -ms-transform: translateX(250px);
+  transform: translateX(250px);
+}
+.close {
+  pointer-events: none;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: background-color 0.6s;
+  -o-transition: background-color 0.6s;
+  transition: background-color 0.6s;
+  top: 0;
+  left: 0;
+}
+#navtgl:checked ~ .close {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.3);
+}
+nav {
+  z-index: 3;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  padding: 10px;
+  background: rgba(20,20,160,0.7);
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  -o-transition: transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
+}
+nav h1,
+nav li,
+nav li>a {
+  color: #fff;
+}
+nav h1 {
+  margin: -10px 0 0 -10px;
+  padding: 10px 0 10px 10px;
+  background: rgba(20,20,160,0.9);
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+nav li {
+  border-bottom: 1px solid #bbb;
+  font-size: 0.14rem;
+  line-height: 1.4;
+}
+nav li:first-child {
+  border-top: 1px solid #bbb;
+}
+nav li a {
+  display: block;
+  padding: 1em 2em;
+  text-decoration: none;
+  -webkit-transition: background-color 0.6s;
+  -o-transition: background-color 0.6s;
+  transition: background-color 0.6s;
+}
+#navtgl:checked ~ nav {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+header {
+  height: 50px;
+  width: 100%;
+  padding-left: 80px;
+  margin-top: -20px;
+  padding-top: 10px;
+  padding-bottom: 18px;
+  background-color: #99f;
+  position: fixed;
+  top: 0;
+}
+header h2 {
+  font-size: 0.26rem;
+}
+.wrapper {
+  padding-top: 60px;
+}
+.wrapper .status {
+  min-height: 50px;
+  width: 100%;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.wrapper .status .status_avater {
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border: 1px solid #999;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+.wrapper .status .status_avater img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .status .status_content {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid #999;
+  border-radius: 10px;
+  padding: 6px;
+  padding-bottom: 0;
+}
+.wrapper .status .status_content * {
+  text-decoration: none;
+  color: #000;
+}
+.wrapper .status .status_content .text {
+  display: block;
+  font-size: 0.16rem;
+}
+.wrapper .status .status_content p {
+  margin: 0;
+  padding: 0;
+}
+.wrapper .status .status_content p .status_hashtag {
+  display: inline-block;
+  background-color: #aaf;
+  border: 1px solid #999;
+  color: #000;
+  border-radius: 10px;
+  padding: 1px;
+  margin: 1px;
+  font-weight: bold;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+}
+.wrapper .status .status_content p .status_hashtag:hover {
+  background-color: #339;
+  color: #fff;
+  border: 1px solid #000;
+}
+.wrapper .status .status_content .status_name {
+  display: inline-block;
+  background: -webkit-gradient(linear, left top, right top, from(#000), color-stop(70%, #000), to(rgba(0,0,0,0)));
+  background: -webkit-linear-gradient(left, #000, #000 70%, rgba(0,0,0,0));
+  background: -o-linear-gradient(left, #000, #000 70%, rgba(0,0,0,0));
+  background: linear-gradient(to right, #000, #000 70%, rgba(0,0,0,0));
+  width: 100%;
+  padding: 1px;
+  margin: 0 0 -1px -7px;
+}
+.wrapper .status .status_content .status_name * {
+  color: #fff;
+}
+#posttgl {
+  display: none;
+  overflow: hidden;
+}
+#postopen,
+#postclose {
+  cursor: pointer;
+  position: fixed;
+  bottom: 0;
+}
+#postopen {
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  line-height: 60px;
+  font-size: 0.2rem;
+  background-color: #7dd;
+  color: #fff;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+  text-align: center;
+}
+#postopen::after {
+  content: "Toot!";
+}
+#posttgl:checked + #postopen {
+  width: 80px;
+  height: 80px;
+  left: -12px;
+  z-index: 10;
+  -moz-border-radius: 160px;
+  -webkit-border-radius: 160px;
+  border-radius: 160px;
+  line-height: 80px;
+  font-size: 0.3rem;
+  background-color: #822;
+  bottom: calc(100% - 68px);
+}
+#posttgl:checked + #postopen::after {
+  content: "×";
+}
+#postclose {
+  pointer-events: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+  top: 0;
+  left: 0;
+}
+#posttgl:checked ~ #postclose {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.3);
+}
+footer {
+  z-index: 6;
+  position: fixed;
+  overflow: auto;
+  bottom: 0;
+  width: 100%;
+  height: calc(100% - 78px);
+  padding: 10px;
+  background: rgba(20,20,160,0.7);
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+}
+#posttgl:checked ~ footer {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
