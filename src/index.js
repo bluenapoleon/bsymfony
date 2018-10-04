@@ -1,15 +1,27 @@
 import riot from 'riot'
 import myIndex from './tag/my-index.tag'
 
-riot.mount("my-index", {
-  statuses: [
-    {
-      contents: 'クソビビりなので夕方には洞穴にこもって採掘してる',
-      hashtag: '#Minecraft',
+var createApp = function() {
+  var app = {
+    statuses: []
+  }
+  var i = 0;
+  window.setInterval(function() {
+    app.statuses.push({
+      contents: `test${i}`,
+      hashtag: "#testTag",
       account: {
-        display_name: 'ぽきぽにく',
-        screen_name: '@kinopikop'
+        display_name: 'tester',
+        screen_name: "@tester"
       }
-    }
-  ]
+    });
+    riot.update();
+    i++;
+  }, 10000)
+
+  return app;
+};
+
+riot.mount("my-index", {
+  app: createApp(),
 });
