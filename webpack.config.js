@@ -12,7 +12,15 @@ module.exports = {
         {
             test: /\.tag$/,
             exclude: /node_modules/,
-            loader: 'riot-tag-loader'
+            use: [
+                {
+                    loader: 'riot-tag-loader',
+                    options: {
+                        template: 'pug',
+                        debug: true
+                    }
+                }
+            ]
         },
         {
             test: /\.js$/,
@@ -28,5 +36,8 @@ module.exports = {
     new webpack.ProvidePlugin({
         riot: 'riot'
     })
-  ]
+  ],
+  devServer: {
+    publicPath: '/assets/js/'
+  }
 };
