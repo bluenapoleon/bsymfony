@@ -13,3 +13,4 @@ my-index
           span.status_sc_name { status.account.display_name }
           span.id { status.account.screen_name }
   include ../pug/_footer.pug
+  include ../pug/_compose.pug
