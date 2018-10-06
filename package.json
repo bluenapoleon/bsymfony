@@ -21,6 +21,8 @@
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
-    "riot": "^3.12.0"
+    "axios": "^0.18.0",
+    "riot": "^3.12.0",
+    "tootjs": "^0.1.4"
   }
 }
