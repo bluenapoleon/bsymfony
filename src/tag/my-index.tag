@@ -2,7 +2,7 @@ my-index
   include ../pug/_nav.pug
   include ../pug/_header.pug
   .wrapper
-    article.status.status_pub(each="{ status in opts.statuses }")
+    article.status.status_pub(each="{ status in opts.app.statuses }")
       .status_avater
         img(src="{ status.avator_url }", alt="")
       .status_content
