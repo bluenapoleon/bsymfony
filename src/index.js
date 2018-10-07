@@ -1,26 +1,15 @@
 import riot from 'riot'
 import myIndex from './tag/my-index.tag'
 import * as tootjs from 'tootjs'
-import axios from 'axios'
 import sanitizeHtml from 'sanitize-html'
 
-var client = axios.create({
-  baseURL: 'http://localhost:8000',
-  headers: {
-    'Content-Type': 'application/json',
-    'X-Requested-With': 'XMLHttpRequest'
-  },
-  responseType: 'json'
-});
-
 var config = {
-  "access_token": "fugafuga",
+  "access_token": "---",
   "scope": "read write follow",
-  "host": "hogehoge"
+  "host": "--"
 };
 
 var mastodon = new tootjs.Mastodon(config);
-
 
 var createApp = function() {
   var app = {
