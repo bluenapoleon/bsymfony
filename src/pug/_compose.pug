@@ -1,17 +1,26 @@
-footer
-	#post
+#post
+	.post_top
 		input#cwtgl(type="checkbox", name="cw")
-		label.cwon(for="cwcheck")
-		label.cwoff(for="cwcheck")
+		label#oncw(for="cwtgl") 注意文
 		textarea#cwtext(name="cwtext") もう時間がないんです！
-		textarea#toot(name="toot") あふぅ
-		select(name="privacy" size="1")
-			option(value="他サーバに公開") 他サーバに公開
-			option(value="身内") 身内
-			option(value="鍵付き") 鍵付き
-			option(value="DM") DM
-		input#image(type="file", name="image")
-		input#nsfwtgl(type="checkbox", name="nsfw")
-		label.nsfwon(for="nsfwcheck")
-		label.nsfwoff(for="nsfwwcheck")
-		a(href="#") Toot!
+	.post_wrap
+		.post_left
+			.upload_imgs
+			a#cm_upload(href="#") 📷
+			input#nsfwtgl(type="checkbox", name="nsfw")
+			label#onnsfw(for="nsfwtgl") NSFW
+		.post_right
+			textarea#toottext(name="toot") あふぅ
+			.post_bottom
+				ul
+					li#cm_public 他サーバに公開
+					li#cm_unlisted 身内
+					li#cm_privacy 鍵付き
+					li#cm_direct DM
+				a#cm_post(href="#") Toot!
+	input#cm_public(type="radio", name="privacy", value="1", checked="")
+	input#cm_unlisted(type="radio", name="privacy", value="2")
+	input#cm_private(type="radio", name="privacy", value="3")
+	input#cm_direct(type="radio", name="privacy", value="4")
+	input#cm_image(type="file", name="image")
+	input#cm_submit(type="submit")
