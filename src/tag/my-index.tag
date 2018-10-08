@@ -7,7 +7,8 @@ my-index
         img(src="{ status.account.avatar }", alt="")
       .status_content
         a.text(href="#")
-          p { status.content }
+          p 
+            raw(content="{ this.innerHTML = status.content }")
             a.status_hashtag(href="#", each="{ tag in status.tags }") { tag }
         a.status_name(href="#")
           span.status_sc_name { status.account.display_name }
