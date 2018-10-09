@@ -12,11 +12,16 @@
 		.post_right
 			textarea#toottext(name="toot") あふぅ
 			.post_bottom
-				ul
-					li#cm_public 他サーバに公開
-					li#cm_unlisted 身内
-					li#cm_privacy 鍵付き
-					li#cm_direct DM
+				my-dropdown(default-label="test", default-value="1")
+					my-dropdown-item(my-label="test", my-value="1")
+				ul.dropdown
+					li
+						a(href="#") 他サーバに公開
+						ul
+							li#list_public: a(href="#").privacy_list 他サーバに公開
+							li#list_unlisted: a(href="#").privacy_list 身内
+							li#list_private: a(href="#").privacy_list 鍵付き
+							li#list_direct: a(href="#").privacy_list DM
 				a#cm_post(href="#") Toot!
 	input#cm_public(type="radio", name="privacy", value="1", checked="")
 	input#cm_unlisted(type="radio", name="privacy", value="2")

@@ -1,5 +1,5 @@
 my-dropdown
-  div(class="my-dropdown {my-dropdown__open: isOpen}")
+  .my-dropdown(class="{my-dropdown__open: isOpen}")
     span(class="my-dropdown__label", onclick="{ toggle }")
       | { label }
     div.my-dropdown__menu
