@@ -1,5 +1,6 @@
 import riot from 'riot'
 import myIndex from './tag/my-index.tag'
+import myDropdown from './tag/my-dropdown.tag'
 import * as tootjs from 'tootjs'
 import sanitizeHtml from 'sanitize-html'
 import { EventEmitter } from 'events';
@@ -7,7 +8,7 @@ import { EventEmitter } from 'events';
 var config = {
   "access_token": "---",
   "scope": "read write follow",
-  "host": "--"
+  "host": "==="
 };
 
 var mastodon = new tootjs.Mastodon(config);
@@ -23,12 +24,21 @@ var createApp = function() {
         account: status.account,
         content: sanitizeHtml(status.content, {
           allowedTags: ['a']
-        })
+        }),
+        created_at: status.created_at
       };
       console.log(status);
       app.statuses.push(viewStatus);
     }
-    app.statuses.reverse()
+    app.statuses.sort((a, b) => {
+      if (a.created_at > b.created_at) {
+        return -1;
+      } else if (a.created_at < b.created_at) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
     riot.update();
   });
 
@@ -59,6 +69,6 @@ riot.tag('raw', '<span></span>', function (opts) {
   this.updateContent();
 });
 
-riot.mount("my-index", {
+riot.mount('my-index', {
   app: createApp(),
 });

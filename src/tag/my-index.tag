@@ -1,6 +1,8 @@
 my-index
   include ../pug/_nav.pug
   include ../pug/_header.pug
+  my-dropdown(default-label="test", default-value="1")
+    my-dropdown-item(my-label="test", my-value="1")
   .wrapper
     article.status.status_pub(each="{ status in opts.app.statuses }")
       .status_avater
