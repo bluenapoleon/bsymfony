@@ -1,7 +1,7 @@
 my-dropdown
   div(class="my-dropdown {my-dropdown__open: isOpen}")
     span(class="my-dropdown__label", onclick="{ toggle }")
-    | { label }
+      | { label }
     div.my-dropdown__menu
       yield.
 
@@ -13,20 +13,23 @@ my-dropdown
     }
 
     select(label, value) {
+      console.log("test");
       this.label = label;
       this.value = value;
+      this.toggle();
+      this.update();
     }
 
   style(type="text/stylus").
-    .my-dropdown *
-      visibility: none
-      .my-dropdown__open
-        visibility: visible
+    .my-dropdown > .my-dropdown__menu
+      visibility: hidden
+    .my-dropdown.my-dropdown__open > .my-dropdown__menu
+      visibility: visible
 
 my-dropdown-item
-  span(class="my-dropdown__item", onclick="{ select }") { opts.myLabel }
+  span(class="my-dropdown__item", onclick="{ doClose }") { opts.myLabel }
 
   script.
-    function select(e) {
+    doClose(e) {
       this.parent.select(opts.myLabel, opts.myValue);
     }
