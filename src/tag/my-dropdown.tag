@@ -1,6 +1,6 @@
 my-dropdown
   .my-dropdown(class="{my-dropdown__open: isOpen}")
-    span(class="my-dropdown__label", onclick="{ toggle }")
+    div(class="my-dropdown__label", onclick="{ toggle }")
       | { label }
     div.my-dropdown__menu
       yield.
@@ -21,13 +21,22 @@ my-dropdown
     }
 
   style(type="text/stylus").
+    .my-dropdown
+      width: 100%
+    .my-dropdown.my-dropdown__open
+      position: fixed
+      display: block
+      left: 0
+      top 0
+      margin: auto
+      backgroud: white
     .my-dropdown > .my-dropdown__menu
-      visibility: hidden
+      display: none
     .my-dropdown.my-dropdown__open > .my-dropdown__menu
-      visibility: visible
+      display: block
 
 my-dropdown-item
-  span(class="my-dropdown__item", onclick="{ doClose }") { opts.myLabel }
+  div(class="my-dropdown__item", onclick="{ doClose }") { opts.myLabel }
 
   script.
     doClose(e) {
