@@ -8,6 +8,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 
+app.get('/tags/:tag', (req, res) => {
+  res.sendFile(path.join(__dirname, '../tags.html'))
+});
+
 app.get('/style.css', (req, res) => {
   res.sendFile(path.join(__dirname, '../style.css'));
 })
