@@ -1,12 +1,12 @@
 import riot from 'riot'
-import myIndex from './tag/my-index.tag'
-import myDropdown from './tag/my-dropdown.tag'
+import bsIndex from './tag/bs-index.tag'
+import bsDropdown from './tag/bs-dropdown.tag'
 import { createTimeline } from './common'
 
 var paths = window.location.pathname.split("/");
 var tag = paths[paths.length - 1];
 
-riot.mount('my-index', {
+riot.mount('bs-index', {
   app: createTimeline({
     rest: {
       api: `timelines/tag/${tag}`,
