@@ -1,4 +1,4 @@
-my-compose
+bs-compose
   form#post(onsubmit="{ compose }", action="javascript:void(0)")
     .post_top
       input#cwtgl(type="checkbox", name="cw")
@@ -13,11 +13,11 @@ my-compose
       .post_right
         textarea#toottext(ref="toottext", name="toot", placeholder="あふぅ")
         .post_bottom
-          my-dropdown(default-label="公開範囲", default-value="default")
-            my-dropdown-item(my-label="他サーバに公開", my-value="public")
-            my-dropdown-item(my-label="身内", my-value="unlisted")
-            my-dropdown-item(my-label="鍵付き", my-value="private")
-            my-dropdown-item(my-label="DM", my-value="direct")
+          bs-dropdown(default-label="公開範囲", default-value="default")
+            bs-dropdown-item(bs-label="他サーバに公開", bs-value="public")
+            bs-dropdown-item(bs-label="身内", bs-value="unlisted")
+            bs-dropdown-item(bs-label="鍵付き", bs-value="private")
+            bs-dropdown-item(bs-label="DM", bs-value="direct")
           ul.dropdown
             li
               a(href="#") 他サーバに公開
