@@ -1,4 +1,3 @@
-import riot from 'riot'
 import * as tootjs from 'tootjs'
 import sanitizeHtml from 'sanitize-html'
 import { EventEmitter } from 'events';
@@ -37,7 +36,6 @@ export var createTimeline = function(conf) {
         return 0;
       }
     });
-    riot.update();
   });
 
   var event = new EventEmitter();
@@ -48,21 +46,8 @@ export var createTimeline = function(conf) {
         allowedTags: ['a']
       })
     });
-    riot.update();
   })
   mastodon.stream(conf.stream.api, conf.stream.query, event);
 
   return app;
 };
-
-riot.tag('raw', '<span></span>', function (opts) {
-  this.updateContent = function () {
-      this.root.innerHTML = opts.content;
-  };
-
-  this.on('update', function() {
-      this.updateContent();
-  });
-
-  this.updateContent();
-});

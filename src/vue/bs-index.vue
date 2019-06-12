@@ -1,7 +1,7 @@
 <template lang="pug">
   .root
-    include ../pug/_nav.pug
-    include ../pug/_header.pug
+    bs-nav(title="imastodon.blue", :collapse="true")
+    // include ../pug/_header.pug
     .wrapper
       article.status.status_pub(v-for="status in app.statuses")
         .status_avater
@@ -20,7 +20,10 @@
 
 <script>
 import { createTimeline } from '../common'
+import BsNav from './bs-nav.vue'
 export default {
+  name: "bs-index",
+  components: { BsNav },
   data () {
     return {
       app: createTimeline({
