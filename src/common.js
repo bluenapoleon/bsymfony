@@ -15,6 +15,10 @@ export var createTimeline = function(conf) {
     statuses: []
   }
 
+  app.compose = (status) => {
+    mastodon.post("statuses", status)
+  }
+
   mastodon.get(conf.rest.api, conf.rest.query).then(resp => {
     for (let status of resp) {
       let viewStatus = {

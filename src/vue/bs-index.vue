@@ -15,15 +15,17 @@
             span.status_sc_name {{ status.account.display_name }}
             span.id @{{ status.account.username }}
     include ../pug/_footer.pug
-    include ../pug/_compose.pug
+    bs-compose(:compose="app.compose")
 </template>
 
 <script>
 import { createTimeline } from '../common'
 import BsNav from './bs-nav.vue'
+import BsCompose from './bs-compose.vue'
+
 export default {
   name: "bs-index",
-  components: { BsNav },
+  components: { BsNav, BsCompose },
   data () {
     return {
       app: createTimeline({
