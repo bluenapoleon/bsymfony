@@ -13,19 +13,11 @@
       .post_right
         textarea#toottext(v-model="toot" name="tootText", placeholder="あふぅ")
         .post_bottom
-          bs-dropdown(default-label="公開範囲", default-value="default")
-            bs-dropdown-item(bs-label="他サーバに公開", bs-value="public")
-            bs-dropdown-item(bs-label="身内", bs-value="unlisted")
-            bs-dropdown-item(bs-label="鍵付き", bs-value="private")
-            bs-dropdown-item(bs-label="DM", bs-value="direct")
-          ul.dropdown
-            li
-              a(href="#") 他サーバに公開
-              ul
-                li#list_public: a(href="#").privacy_list 他サーバに公開
-                li#list_unlisted: a(href="#").privacy_list 身内
-                li#list_private: a(href="#").privacy_list 鍵付き
-                li#list_direct: a(href="#").privacy_list DM
+          el-select(v-model="publicity", placeholder="公開範囲")
+            el-option(label="他サーバに公開", value="public")
+            el-option(label="身内", value="unlisted")
+            el-option(label="鍵付き", value="private")
+            el-option(label="DM", value="direct")
           input#cm_post(type="submit", value="Toot!")
 </template>
 
@@ -37,7 +29,8 @@ export default Vue.extend({
     return {
       toot: "",
       cwText: "",
-      isNsfw: false
+      isNsfw: false,
+      publicity: "public"
     }
   }
 })
