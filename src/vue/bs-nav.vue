@@ -5,7 +5,7 @@
       i.el-icon-arrow-left(v-else)
       span(slot="title") {{ title }}
     template(v-if="!collapse")
-      el-menu-item(v-for="(item, index) in items", @click="item.click")
+      el-menu-item(v-for="(item, index) in items", :key="index", @click="item.click")
         i(:class="item.styleClass")
         span(slot="title") {{ item.title }}
 </template>

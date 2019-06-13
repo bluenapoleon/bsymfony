@@ -1,20 +1,11 @@
-import riot from 'riot'
-import bsIndex from './tag/bs-index.tag'
-import bsDropdown from './tag/bs-dropdown.tag'
-import { createTimeline } from './common'
+import Vue from 'vue'
+import BsTag from './vue/bs-tag.vue'
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
-var paths = window.location.pathname.split("/");
-var tag = paths[paths.length - 1];
+Vue.use(Element)
 
-riot.mount('bs-index', {
-  app: createTimeline({
-    rest: {
-      api: `timelines/tag/${tag}`,
-      query: {}
-    },
-    stream: {
-      api: 'hashtag',
-      query: { tag: tag }
-    }
-  })
-});
+new Vue({
+  el: "#bs-app",
+  components: { BsTag }
+})

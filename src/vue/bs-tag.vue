@@ -12,6 +12,9 @@ import { createTimeline } from '../common'
 import BsNav from './bs-nav.vue'
 import BsCompose from './bs-compose.vue'
 
+var paths = window.location.pathname.split("/");
+var tag = paths[paths.length - 1];
+
 export default {
   name: "bs-index",
   components: { BsNav, BsCompose },
@@ -19,7 +22,7 @@ export default {
     return {
       app: createTimeline({
         rest: {
-          api: 'timelines/home',
+          api: `timelines/tag${tag}`,
           query: {}
         },
         stream: {
@@ -31,4 +34,3 @@ export default {
   }
 }
 </script>
-
