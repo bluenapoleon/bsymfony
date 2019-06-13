@@ -1,17 +1,11 @@
-import riot from 'riot'
-import bsIndex from './tag/bs-index.tag'
-import bsDropdown from './tag/bs-dropdown.tag'
-import { createTimeline } from './common'
+import Vue from 'vue'
+import BsIndex from './vue/bs-index.vue'
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
-riot.mount('bs-index', {
-  app: createTimeline({
-    rest: {
-      api: 'timelines/home',
-      query: {}
-    },
-    stream: {
-      api: 'user',
-      query: {}
-    }
-  })
-});
+Vue.use(Element)
+
+new Vue({
+  el: "#bs-app",
+  components: { BsIndex }
+})

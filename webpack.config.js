@@ -1,9 +1,10 @@
 const path = require('path');
-const webpack = require('webpack')
+const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
 module.exports = {
   entry: {
-      index: './src/index.js',
+  //       index: './src/index.js',
+      index2: './src/index2.js',
       tags: './src/tags.js'
   },
   output: {
@@ -12,38 +13,36 @@ module.exports = {
   },
   module: {
     rules: [
-        {
-            test: /\.tag$/,
-            exclude: /node_modules/,
-            use: [
-                {
-                    loader: 'riot-tag-loader',
-                    options: {
-                        template: 'pug',
-                        debug: true
-                    }
-                }
-            ]
-        },
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        },
-        {
-            test: /\.js$/,
-            use: ["source-map-loader"],
-            enforce: "pre"
-        }
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug-plain-loader'
+      }
     ]
   },
   resolve: {
-      extensions: ['.js', '.tag']
+    extensions: ['.js'],
+    alias: {
+      "vue$": "vue/dist/vue.esm.js"
+    }
   },
   plugins: [
-    new webpack.ProvidePlugin({
-        riot: 'riot'
-    })
+    new VueLoaderPlugin()
   ],
   devServer: {
     publicPath: '/assets/js/'
