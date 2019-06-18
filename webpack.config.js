@@ -5,6 +5,7 @@ module.exports = {
   entry: {
       index: './src/index.js',
       login: './src/login.js',
+      'login-redirect' : './src/login-redirect.js',
       tags: './src/tags.js'
   },
   output: {

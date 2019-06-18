@@ -13,6 +13,9 @@ var authenticate = (req, res, next) => {
   }
 }
 
+app.get('/login-redirect', (req, res) => {
+  res.sendFile(path.join(__dirname, '../html/login-redirect.html'))
+})
 app.get('/', authenticate, (req, res) => {
   res.sendFile(path.join(__dirname, '../html', '/index.html'))
 })

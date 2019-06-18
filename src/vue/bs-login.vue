@@ -11,6 +11,7 @@ import Vue from 'vue'
 export default Vue.extend({
   methods: {
     login: (domain) => {
+      localStorage.setItem("domain", domain)
       var clientId = localStorage.getItem("client_id")
       var clientSecret = localStorage.getItem("client_secret")
       if (!clientId || !clientSecret) {
@@ -39,7 +40,7 @@ export default Vue.extend({
           })
       } else {
         var redirectTo = encodeURIComponent(`https://${window.location.host}/login-redirect`)
-            window.location.href = `https://${domain}/oauth/authorize?client_id=${clientId}&client_secret=${clientSecret}&response_type=code&redirect_uri=${redirectTo}`
+        window.location.href = `https://${domain}/oauth/authorize?client_id=${clientId}&client_secret=${clientSecret}&response_type=code&redirect_uri=${redirectTo}`
       }
     }
   }
