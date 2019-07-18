@@ -1,11 +1,12 @@
 import * as tootjs from 'tootjs'
 import sanitizeHtml from 'sanitize-html'
 import { EventEmitter } from 'events';
+import * as Cookies from 'js-cookie'
 
 export var config = {
-  "access_token": "---",
+  "access_token": Cookies.get('token'),
   "scope": "read write follow",
-  "host": "==="
+  "host": localStorage.getItem("domain")
 };
 
 export var mastodon = new tootjs.Mastodon(config);

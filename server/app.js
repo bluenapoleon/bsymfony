@@ -1,11 +1,25 @@
 var path = require('path')
 var express = require('express')
+var cookieParser = require('cookie-parser')
 var app = express()
 
-app.get('/', (req, res) => {
+app.use(cookieParser())
+
+var authenticate = (req, res, next) => {
+  if (req.cookies.token) {
+    next()
+  } else {
+    res.sendFile(path.join(__dirname, '../html', '/login.html'))
+  }
+}
+
+app.get('/login-redirect', (req, res) => {
+  res.sendFile(path.join(__dirname, '../html/login-redirect.html'))
+})
+app.get('/', authenticate, (req, res) => {
   res.sendFile(path.join(__dirname, '../html', '/index.html'))
 })
-app.get('/tags/:tag', (req, res) => {
+app.get('/tags/:tag', authenticate, (req, res) => {
   res.sendFile(path.join(__dirname, '../html/tags.html'))
 })
 app.get('/style.css', (req, res) => {

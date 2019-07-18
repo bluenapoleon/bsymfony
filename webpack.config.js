@@ -3,8 +3,9 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
 module.exports = {
   entry: {
-  //       index: './src/index.js',
-      index2: './src/index2.js',
+      index: './src/index.js',
+      login: './src/login.js',
+      'login-redirect' : './src/login-redirect.js',
       tags: './src/tags.js'
   },
   output: {
