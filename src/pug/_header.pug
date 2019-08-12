@@ -1,2 +1,3 @@
-header
-	block header_title
+header.bs-header(v-if="!menuOpen")
+	el-button(@click="menuOpen = true")
+		i.el-icon-arrow-right
