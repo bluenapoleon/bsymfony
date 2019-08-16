@@ -12,6 +12,11 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'assets/js')
   },
+  externals: {
+    vue: "Vue",
+    'element-ui': "ELEMENT",
+    'js-cookie': "Cookies"
+  },
   module: {
     rules: [
       {

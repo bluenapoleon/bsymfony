@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import BsLogin from './vue/bs-login.vue'
-import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import ELEMENT from 'element-ui'
 
-Vue.use(Element)
+Vue.use(ELEMENT)
 
 new Vue({
   el: "#bs-app",
