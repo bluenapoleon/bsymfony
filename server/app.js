@@ -6,7 +6,7 @@ var app = express()
 app.use(cookieParser())
 
 var authenticate = (req, res, next) => {
-  if (req.cookies.token) {
+  if (req.cookies.token != null) {
     next()
   } else {
     res.sendFile(path.join(__dirname, '../html', '/login.html'))
