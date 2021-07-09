@@ -101,7 +101,7 @@ nav li a {
 #navtgl:checked ~ nav {
   transform: translateX(0);
 }
-header {
+header.bs-header {
   height: 52px;
   width: 100%;
   padding-left: 80px;
@@ -109,10 +109,10 @@ header {
   padding-top: 10px;
   padding-bottom: 18px;
   background-color: #99f;
-  position: fixed;
+  position: sticky;
   top: 0;
 }
-header h2 {
+header.bs-header h2 {
   font-size: 0.26rem;
 }
 .wrapper {

@@ -1,21 +1,22 @@
 <template lang="pug">
-  el-menu(:collapse="collapse")
-    el-menu-item(index="header", @click="collapse = !collapse")
-      i.el-icon-arrow-right(v-if="collapse")
-      i.el-icon-arrow-left(v-else)
-      span(slot="title") {{ title }}
-    template(v-if="!collapse")
-      el-menu-item(v-for="(item, index) in items", :key="index", @click="item.click")
-        i(:class="item.styleClass")
-        span(slot="title") {{ item.title }}
+  el-drawer(
+    :visible.sync="visible"
+    direction="ltr"
+    :title="title"
+    :before-close="() => $emit('close')"
+  )
+    template
+      el-menu(:collapse="false")
+        el-menu-item(v-for="(item, index) in items", :key="index", @click="item.click")
+          i(:class="item.styleClass")
+          template(v-slot:title) {{ item.title }}
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: "bs-index",
-  props: ['title', 'collapse'],
+  props: ['title', 'visible'],
   data: () => {
     return {
       items: [

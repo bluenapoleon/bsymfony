@@ -16,7 +16,6 @@ var paths = window.location.pathname.split("/");
 var tag = paths[paths.length - 1];
 
 export default {
-  name: "bs-index",
   components: { BsNav, BsCompose },
   data () {
     return {

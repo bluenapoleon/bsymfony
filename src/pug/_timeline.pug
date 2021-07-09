@@ -1,5 +1,5 @@
 .wrapper
-  article.status.status_pub(v-for="status in app.statuses")
+  article.status.status_pub(v-for="status in timeline.statuses")
     .status_avater
       img(:src="status.account.avatar", alt="")
     .status_content
